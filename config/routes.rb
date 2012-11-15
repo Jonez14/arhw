@@ -1,10 +1,31 @@
 Arhw::Application.routes.draw do
   
-  root to: "posts#index"
-
-  resources :posts
-  resources :users
+  
+resources :comments do
   resources :comments
+end
+
+resources :posts do
+  resources :comements 
+end
+
+root to: "posts#index"
+
+end
+
+  #resources :posts
+  #resources :users
+  #resources :comments
+
+#resources :users do
+  #put :comments, on => :posts
+
+#end
+
+  
+
+
+
   
 
   # The priority is based upon order of creation:
