@@ -1,26 +1,21 @@
 Arhw::Application.routes.draw do
   
-  
-resources :comments do
-  resources :comments
-end
-
-resources :posts do
-  resources :comements 
-end
-
 root to: "posts#index"
 
-end
 
-  #resources :posts
-  #resources :users
-  #resources :comments
+  resources :posts
+  resources :users
 
-#resources :users do
-  #put :comments, on => :posts
+  resources :posts do
+    
+   #get   '/comments' =>'post#show_new_comments'                       
+    get   '/comments/new' => 'post#show_new_comments' 
+                  #get   /comments/:id/edit               posts#edit  build like comments new
+                  #get   /comments/:id                 posts#show ###
+                  
 
-#end
+    resources :comments
+  end
 
   
 
