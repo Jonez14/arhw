@@ -3,19 +3,15 @@ Arhw::Application.routes.draw do
 root to: "posts#index"
 
 
-  resources :posts
-  resources :users
+resources :users
+resources :posts do 
 
-  resources :posts do
+  post    '/comments' => 'posts#create_comments'
+  get     '/comments/new' => 'posts#new_comments'
+
+end
     
-   #get   '/comments' =>'post#show_new_comments'                       
-    get   '/comments/new' => 'post#show_new_comments' 
-                  #get   /comments/:id/edit               posts#edit  build like comments new
-                  #get   /comments/:id                 posts#show ###
-                  
-
-    resources :comments
-  end
+                
 
   
 

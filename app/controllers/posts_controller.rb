@@ -1,4 +1,51 @@
 class PostsController < ApplicationController
+
+  before_filter :auth , :only => [:new_comments]
+  
+
+
+
+ # GET /posts/new
+  # GET /posts/new.json
+  def new_comments
+    @comment = Comment.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @post }
+    end
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   # GET /posts
   # GET /posts.json
   def index
@@ -10,28 +57,8 @@ class PostsController < ApplicationController
     end
   end
 
-  # GET /posts/1
-  # GET /posts/1.json
-  def show_new_comments
-    @post = new_comment.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @post }
-    end
-  end
-
-  # GET /posts/1
-  # GET /posts/1.json
-  def show_comments
-    @post = create_comment.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @post }
-    end
-  end
-
+ 
+ 
   # GET /posts/1
   # GET /posts/1.json
   def show
@@ -102,4 +129,10 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+private
+def auth
+  @post = Post.find(params[:post_id])
+end
+
 end

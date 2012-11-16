@@ -15,15 +15,15 @@
     <td><%= post.user.name%></td>
     <td><%= link_to 'Show', post %></td>
     <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= button_to "View & Add Comments (#{post.comments.count})",method: :get new_post_comment_path(post) %>
+    <td><%= button_to "New Post" , post_comments_new_path(post.id), method:'get' %></td>
+    
     
 
     <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
-</table>
 
+</table>
 <br />
 
 
