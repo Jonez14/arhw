@@ -50,28 +50,6 @@ class PostsController < ApplicationController
   end
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   # GET /posts
   # GET /posts.json
   def index
