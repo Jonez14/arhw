@@ -16,12 +16,38 @@ class PostsController < ApplicationController
     end
   end
 
+##def count
+  ##@post =post.find(params[:post_id])
+  ##@comment = @post.comments.count (params[:comment])
 
 
+# POST /posts
+  # POST /posts.json
+  def create_comments
+    @comment = Comment.new(params[:comment])
+
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to @post, notice: 'Comment was successfully created.' }
+        format.json { render json: @post, status: :created, location: @post }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
 
+ # GET /posts/1
+  # GET /posts/1.json
+  def show_comments
+    @comment = Comment.find(params[:id])
 
-
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @post }
+    end
+  end
 
 
 
